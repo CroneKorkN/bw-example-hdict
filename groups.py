@@ -1,4 +1,4 @@
-hdict = libs.hdict.hdict
+hashable = libs.hashable.hashable
 
 groups = {
     'all': {
@@ -6,19 +6,22 @@ groups = {
             r".*",
         ),
         'metadata': {
-            'set': {
-                hdict({
+            'dicts': {
+                hashable({
                     'a': 10,
                     'b': {
                         'c': 11,
                     },
                 }),
-                hdict({
+                hashable({
                     'a': 12,
                     'b': {
                         'c': 13,
                     },
                 }),
+            },
+            'sets': {
+                hashable({5,6,7}),
             },
         },
     },

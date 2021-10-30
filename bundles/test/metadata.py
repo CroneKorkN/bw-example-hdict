@@ -1,20 +1,24 @@
-hdict = repo.libs.hdict.hdict
+hashable = repo.libs.hashable.hashable
 
 
 defaults = {
-    'set': {
-        hdict({'foo': 'bar'}),
-    }
+    'dicts': {
+        hashable({'foo': 'bar'}),
+    },
+    'sets': {
+        hashable({1,2,3}),
+    },
 }
 
 
-@metadata_reactor.provides(
-    'set',
-)
+@metadata_reactor
 def test(metadata):
     return {
-        'set': {
-            hdict({'alice': 'bob', '1': {'2': '3'}}),
-            hdict({'fix': 'foxi'}),
-        }
+        'dicts': {
+            hashable({'alice': 'bob', '1': {'2': '3'}}),
+            hashable({'fix': 'foxi'}),
+        },
+        'sets': {
+            hashable({2,3,4}),
+        },
     }

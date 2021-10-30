@@ -1,4 +1,4 @@
-hdict = libs.hdict.hdict
+hashable = libs.hashable.hashable
 
 nodes = {
     'node-1': {
@@ -7,19 +7,22 @@ nodes = {
             'test',
         },
         'metadata': {
-            'set': {
-                hdict({
+            'dicts': {
+                hashable({
                     'a': 1,
                     'b': {
                         'c': 3,
                     },
                 }),
-                hdict({
+                hashable({
                     'a': 2,
                     'b': {
                         'c': 4,
                     },
                 }),
+            },
+            'sets': {
+                hashable({3,4,5}),
             },
         },
     },
